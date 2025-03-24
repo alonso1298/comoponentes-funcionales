@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// Funcioón Impura cambia constantemente 
+const impura = () => new Date().toLocaleString();
 
-function App() {
+console.log(impura());
+
+// Función pura es una funcion que nunca cambia el valor de retorno
+const MiComponente = ({miProp}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Nombre: {miProp}
     </div>
+  );
+}
+const App = () => {
+  return (
+    <MiComponente miProp={'Perrito feliz'} />
   );
 }
 
