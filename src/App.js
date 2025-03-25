@@ -1,20 +1,18 @@
-// Funcioón Impura cambia constantemente 
-const impura = () => new Date().toLocaleString();
+import { useState } from "react";
 
-console.log(impura());
-
-// Función pura es una funcion que nunca cambia el valor de retorno
-const MiComponente = ({miProp}) => {
-  return (
-    <div>
-      Nombre: {miProp}
-    </div>
-  );
-}
+// Reglas de los Hooks: 
+// 1. No se llaman en loops, ni condiciones, siempre en el nivel mas alto del componente
+// 2. Solo se llaman es 2 partes:
+// Componentes de react
+// Custom hooks
 const App = () => {
-  return (
-    <MiComponente miProp={'Perrito feliz'} />
-  );
+    const [contador, setContador] = useState(0);
+    return (
+        <div>
+            Contador: {contador}
+            <button onClick={() => setContador(contador + 1)} >Incrementar</button>
+        </div>
+    )
 }
 
 export default App;
